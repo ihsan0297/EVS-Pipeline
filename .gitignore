@@ -5,6 +5,17 @@ __pycache__/
 
 # C extensions
 *.so
+Models/
+debug_crops/
+loaded_model/
+output/
+qr_crops/
+Sample Trolley/
+seam_images/
+stiched/
+Test Images/
+models/
+best.pt
 
 # Distribution / packaging
 .Python

@@ -1,0 +1,9 @@
+ROLL_HEADER_ID_COLUMN="rollHeaderID"
+METERS_COLUMN="meter"
+IMAGE_TITLE_COLUMN="image_title"
+IMAGE_PATH_COLUMN="imagePath"
+SEAM="seam"
+IS_BARCODE_READABLE_COLUMN="isBarCodeReadAble"
+RMQ_QUEUE_NAME="evs_images_input_queue"
+LOOKUP_DOWN_IMAGE_COUNT=5
+ROLL_BODY_COLUMN="evs_roll_body_test"

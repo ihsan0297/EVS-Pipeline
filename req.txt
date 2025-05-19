@@ -1,0 +1,21 @@
+# Core dependencies
+kafka-python
+pillow
+numpy
+opencv-python-headless
+
+# Machine learning
+torch
+torchvision
+timm
+fastai
+
+# Logging
+python-json-logger
+# Web framework
+fastapi
+uvicorn
+
+# Utilities
+python-dotenv
+requests
