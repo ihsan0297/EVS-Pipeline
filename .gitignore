@@ -5,6 +5,12 @@ __pycache__/
 
 # C extensions
 *.so
+Models/
+output/
+test_images/
+v1/
+app.log
+best.pt
 
 # Distribution / packaging
 .Python
