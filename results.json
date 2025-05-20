@@ -1,0 +1,340 @@
+{
+  "images": [
+    {
+      "image_title": "_2025-04-18 10-54-16-357_21902 slub - Copy (3)",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-16-357_21902 slub - Copy (3).jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7214,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.7431,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9138,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-16-357_21902 slub - Copy",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-16-357_21902 slub - Copy.jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7214,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.7431,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9138,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-16-357_21902 slub",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-16-357_21902 slub.jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7214,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.7431,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9138,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-23-801_22246 slub - Copy (2)",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-23-801_22246 slub - Copy (2).jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7461,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9228,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.5657,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-23-801_22246 slub - Copy (3)",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-23-801_22246 slub - Copy (3).jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7461,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9228,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.5657,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-23-801_22246 slub - Copy",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-23-801_22246 slub - Copy.jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7461,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9228,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.5657,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-23-801_22246 slub",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-23-801_22246 slub.jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.7461,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "normal",
+          "confidence": 0.9228,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.5657,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    },
+    {
+      "image_title": "_2025-04-18 10-54-28-505_22468 slub - Copy (2)",
+      "image_path": "C:\\ML-BACKEND\\airflow-functions\\test\\_2025-04-18 10-54-28-505_22468 slub - Copy (2).jpg",
+      "tiles": {
+        "tile_0": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.7454,
+          "geometry": {
+            "x": 0,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_1": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.9877,
+          "geometry": {
+            "x": 896,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        },
+        "tile_2": {
+          "class_id": 0,
+          "class_name": "faulty",
+          "confidence": 0.9895,
+          "geometry": {
+            "x": 1792,
+            "y": 0,
+            "width": 896,
+            "height": 896
+          },
+          "severity": 1
+        }
+      }
+    }
+  ]
+}

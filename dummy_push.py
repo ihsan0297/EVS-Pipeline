@@ -3,12 +3,12 @@ import json
 import pika
 import random
 from pathlib import Path
+import enums
 
 # Configuration
-IMAGE_FOLDER = "seam_images/barcode-test-1"  # Folder containing images to be pushed to RabbitMQ
+IMAGE_FOLDER = "C:\\ML-BACKEND\\airflow-functions\\test"
 RABBITMQ_HOST = "localhost"
-RABBITMQ_QUEUE = "evs_images_input_queue"
-import enums
+RABBITMQ_QUEUE = enums.RMQ_QUEUE_NAME  # RabbitMQ queue name
 def get_image_files(folder):
     # Acceptable image extensions
     exts = [".jpg", ".jpeg", ".png", ".bmp", ".tiff"]

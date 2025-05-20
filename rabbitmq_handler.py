@@ -17,7 +17,7 @@ class RMQHandler:
         self.password = password
         # self.database = database
         self.channel=None
-        self.max_msgs=150
+        self.max_msgs=10
         
     def rabbitMQConnection(self):
         try:
@@ -94,8 +94,43 @@ class RMQHandler:
             print('Exception at <callBack>'+str(e))
             logging.error(f"Error processing message: {e}")
             return False
+    def acknowledge_messages(self, raw_messages):
 
-
+        try:
+            """
+            Acknowledge multiple messages efficiently by extracting delivery tags
+            and using the highest tag with multiple=True parameter.
+            
+            Args:
+                raw_messages: List of raw message dictionaries containing method_frame
+            """
+            if not raw_messages:
+                logging.info("No messages to acknowledge")
+                return
+            
+            # Extract delivery tags from the raw message dictionaries
+            delivery_tags = []
+            for msg in raw_messages:
+                if isinstance(msg, dict) and 'method_frame' in msg:
+                    method_frame = msg.get('method_frame')
+                    if method_frame and hasattr(method_frame, 'delivery_tag'):
+                        delivery_tags.append(method_frame.delivery_tag)
+            
+            if not delivery_tags:
+                logging.info("No valid delivery tags found in messages")
+                return
+                
+            # Find the maximum delivery tag
+            max_tag = max(delivery_tags)
+            
+            # Acknowledge all messages up to and including the max_tag
+            self.channel.basic_ack(delivery_tag=max_tag, multiple=True)
+            logging.info(f"✅ Acknowledged {len(delivery_tags)} messages (up to tag {max_tag})")
+            print(f"✅ Acknowledged {len(delivery_tags)} messages (up to tag {max_tag})")
+        except Exception as e:
+            logging.error(f"❌ Error acknowledging messages: {e}")
+            print(f"❌ Error acknowledging messages: {e}")
+            return False
 #MainMethod
 
 # The code block you provided is the main part of the script. Here's what it does:
