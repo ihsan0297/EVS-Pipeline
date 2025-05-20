@@ -16,6 +16,8 @@ stiched/
 Test Images/
 models/
 best.pt
+stitched/
+test/
 
 # Distribution / packaging
 .Python
