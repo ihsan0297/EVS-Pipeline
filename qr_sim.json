@@ -1,0 +1,650 @@
+{
+  "qr_Res": [
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-28-491_314382.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-28-663_314397.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-28-851_314411.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-035_314441.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-201_314457.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-386_314472.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-572_314488.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-739_314503.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-29-918_314533.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-097_314549.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-282_314563.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-470_314579.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-635_314593.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-824_314623.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-30-993_314638.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-31-184_314654.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-31-367_314669.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-31-532_314684.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-31-711_314716.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-31-899_314730.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-085_314746.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-248_314762.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-439_314777.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-622_314807.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-787_314822.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-32-974_314838.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-33-159_314853.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-33-325_314869.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-03-33-513_314885.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-07-59-920_337747.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-00-100_337759.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-00-285_337771.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-00-471_337795.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-00-638_337807.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-00-823_337819.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-007_337830.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-176_337841.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-355_337853.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-534_337877.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-718_337889.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-01-902_337901.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-086_337913.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-251_337924.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-443_337948.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-609_337959.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-801_337971.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-02-968_337983.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-03-157_337995.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-03-342_338007.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-03-506_338019.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-03-685_338043.jpg",
+      "detection": {
+        "best_box": null
+      },
+      "fast_qr": null,
+      "ocr": {},
+      "similarity_test": {
+        "detected": null,
+        "matches": []
+      }
+    },
+    {
+      "image_path": "D:\\EVS\\APIs\\api\\seam_images\\barcode-test-1\\_2025-03-13 11-08-03-867_338054.jpg",
+      "detection": {
+        "name": "BarCode",
+        "class": 0,
+        "confidence": null,
+        "box": {
+          "x1": 694.0,
+          "y1": 157.0,
+          "x2": 920.0,
+          "y2": 410.0
+        },
+        "best_box": {
+          "x1": 694.0,
+          "y1": 157.0,
+          "x2": 920.0,
+          "y2": 410.0
+        }
+      },
+      "fast_qr": "250504/02/07/01",
+      "ocr": {
+        "Plain_text": null,
+        "Barcode_Number": null
+      },
+      "similarity_test": {
+        "detected": "250504/02/07/01",
+        "matches": [
+          {
+            "match": "250504/02/07/01",
+            "score": 1.0
+          }
+        ]
+      }
+    }
+  ]
+}

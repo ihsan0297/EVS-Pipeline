@@ -17,7 +17,7 @@ class RMQHandler:
         self.password = password
         # self.database = database
         self.channel=None
-        self.max_msgs=250
+        self.max_msgs=150
         
     def rabbitMQConnection(self):
         try:
