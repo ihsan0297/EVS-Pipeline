@@ -29,7 +29,7 @@ def push_images_to_queue():
         message = {
             # enums.IMAGE_TITLE_COLUMN: img.stem,
             enums.IMAGE_PATH_COLUMN: str(img.resolve()),
-            enums.ROLL_HEADER_ID_COLUMN: 101348404067565620,
+            enums.ROLL_HEADER_ID_COLUMN: "20250513_191957",
             enums.METERS_COLUMN:meter,  # Random meters for demo purposes
             enums.IS_BARCODE_READABLE_COLUMN: True  # Assuming barcode is readable for demo
             # You can change this logic

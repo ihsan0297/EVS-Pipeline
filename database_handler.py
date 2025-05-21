@@ -52,7 +52,8 @@ class DatabaseHandler:
         """
         Bulk insert inference results from a JSON file or directly from a data list.
         Each result gets a unique UUID, uses the image path from the data,
-        and stores the complete image data as JSON in predictedAi.
+        and stores the complete image data as JSON in predictedAi (excluding roll_header_id and meters).
+        Also inserts records into ai_allimages table with headerId and imageId.
         
         Args:
             data_source: Either a string path to a JSON file or a list of result dictionaries
@@ -67,8 +68,8 @@ class DatabaseHandler:
                 # Assume it's already the results list
                 results = data_source
             
-            # Prepare SQL query
-            sql = f"""
+            # Prepare SQL query for main table
+            sql_main = f"""
                 INSERT INTO {enums.ROLL_BODY_COLUMN} (
                     imageId, imagePath, predictedAi   
                 ) VALUES (
@@ -76,8 +77,21 @@ class DatabaseHandler:
                 )
             """
             
+            # Prepare SQL query for ai_allimages table
+            sql_allimages = """
+                INSERT INTO ai_allimages (
+                    id, headerId, imageId, url, meter
+                ) VALUES (
+                    %s, %s, %s, %s, %s
+                )
+            """
+            
             # Prepare values for bulk insert
-            values = []
+            main_values = []
+            allimages_values = []
+            
+            image_ids = {}  # Store image IDs for reference in the second insert
+            
             for result in results:
                 # Generate a unique UUID for each image
                 image_id = str(uuid.uuid4()).replace('-', '')[:31]
@@ -85,20 +99,58 @@ class DatabaseHandler:
                 # Get the image path from the result
                 image_path = result.get('image_path', '')
                 
-                # Use the complete result JSON as predictedAi
-                predicted_ai_json = json.dumps(result)
+                # Store image_id in our dictionary with image_title as key
+                image_title = result.get('image_title', '')
+                meters = result.get(enums.METERS_COLUMN, None)
+                image_ids[image_title] = image_id
                 
-                values.append((
+                # Extract headerId (roll_header_id) from result
+                header_id = result.get(enums.ROLL_HEADER_ID_COLUMN, None)
+                
+                # Create a copy of the result that excludes roll_header_id and meters
+                # for storing in predictedAi
+                result_copy = result.copy()
+                if enums.ROLL_HEADER_ID_COLUMN in result_copy:
+                    del result_copy[enums.ROLL_HEADER_ID_COLUMN]
+                if enums.METERS_COLUMN in result_copy:
+                    del result_copy[enums.METERS_COLUMN]
+                
+                # Use the filtered result JSON as predictedAi
+                predicted_ai_json = json.dumps(result_copy)
+                
+                # Add to main table values
+                main_values.append((
                     image_id,
                     image_path,
                     predicted_ai_json
                 ))
+                
+                # Add to ai_allimages values if we have a header ID
+                if header_id:
+                    allimages_values.append((
+                        str(uuid.uuid4()).replace('-', '')[:31],
+                        header_id,
+                        image_id,
+                        image_path,
+                        meters
+                    ))
             
-            # Execute the bulk insert
-            self.cursor.executemany(sql, values)
+            # Execute the bulk insert for main table
+            self.cursor.executemany(sql_main, main_values)
             self.connection.commit()
-            logging.info(f"✅ Bulk inserted {len(values)} inference results")
-            print(f"✅ Bulk inserted {len(values)} inference results")
+            logging.info(f"✅ Bulk inserted {len(main_values)} inference results into main table")
+            print(f"✅ Bulk inserted {len(main_values)} inference results into main table")
+            
+            # Execute the bulk insert for ai_allimages table if we have values
+            if allimages_values:
+                self.cursor.executemany(sql_allimages, allimages_values)
+                self.connection.commit()
+                logging.info(f"✅ Bulk inserted {len(allimages_values)} records into ai_allimages table")
+                print(f"✅ Bulk inserted {len(allimages_values)} records into ai_allimages table")
+            else:
+                logging.warning("⚠️ No records inserted into ai_allimages table (no header IDs found)")
+                print("⚠️ No records inserted into ai_allimages table (no header IDs found)")
+            
             return True
             
         except Exception as e:

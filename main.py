@@ -64,7 +64,6 @@ import json
 import io
 import sys
 import contextlib
-
 @app.get("/inference_image")
 def inference_images():
     try:
@@ -77,15 +76,10 @@ def inference_images():
         if not rmq.rabbitMQConnection():
             logging.error("RMQ Connection Failed")
             return {"status": "error", "message": "RMQ Connection Failed"}
-        # if not db_barcode.connect():
-        #     logging.error("DB Connection Failed")
-        #     return {"status": "error", "message": "Database Connection Failed"}
         
-
         message_bundle = rmq.fetch_messages()
         messages = message_bundle.get("images", [])
         delivery_tags = message_bundle.get("raw", [])
-        # delivery_tags = message_bundle.get("delivery_tags", [])
 
         if not messages:
             return {"status": "error", "message": "No images found in queue"}
@@ -102,45 +96,37 @@ def inference_images():
         for roll_id, roll_msgs in roll_groups.items():
             print(f"🎯 Processing Roll Header ID: {roll_id}")
             logging.info("Processing Roll Header ID: %s", roll_id)
-
-            # Fetch previous sticker model results
-            # prev_res=db.get_next_greater_row_by_roll_header_id(roll_id)
             
-
+            # Create a mapping of image paths to their meter values
+            meters_map = {msg[enums.IMAGE_PATH_COLUMN]: msg.get(enums.METERS_COLUMN) for msg in roll_msgs}
+            
             image_paths = [msg[enums.IMAGE_PATH_COLUMN] for msg in roll_msgs]
-
             results = model.process_images(image_paths)
 
-            combined_results = []
-
-            # for idx, msg in enumerate(roll_msgs):
-            #     image_path = msg[enums.IMAGE_PATH_COLUMN]
-            #     combined = {
-            #         enums.IMAGE_TITLE_COLUMN: os.path.basename(image_path),
-            #         enums.IMAGE_PATH_COLUMN: image_path,
-            #         enums.METERS_COLUMN: msg.get(enums.METERS_COLUMN),
-            #         enums.ROLL_HEADER_ID_COLUMN: roll_id,
-            #         enums.IS_BARCODE_READABLE_COLUMN: msg.get(enums.IS_BARCODE_READABLE_COLUMN)
-            #         # "seam_data": seam_result_map.get(image_path)
-            #     }
+            # Match each result with its corresponding meter value
+            for result in results:
+                result[enums.ROLL_HEADER_ID_COLUMN] = roll_id  # Remove the comma!
+                
+                # Get meter value from the map based on image path
+                image_path = result.get('image_path', '')
+                meter_value = meters_map.get(image_path)
+                result[enums.METERS_COLUMN] = meter_value
+                
+                # For debugging, show which meter is assigned to which image
             
-            #     combined_results.append(combined)
-            success=db.insert_inference_results_bulk(results)
+            success = db.insert_inference_results_bulk(results)
 
             if success and delivery_tags:
                 rmq.acknowledge_messages(delivery_tags)
-            with open("results.json", "w", encoding="utf-8") as f:
+                
+            with open(f"results_{roll_id}.json", "w", encoding="utf-8") as f:
                 json.dump({"images": results}, f, indent=2, ensure_ascii=False)
+                
+            all_combined_results.extend(results)
 
-
-
-            # Sort QR candidates by meters before sending to QR model
-
-            # Run QR detection
-
-            # save_results_to_json({"images": combined_results}, f"results_{roll_id}.json")
-# 
-            # all_combined_results.extend(combined_results)
+        # Save overall results file
+        with open("results.json", "w", encoding="utf-8") as f:
+            json.dump({"images": all_combined_results}, f, indent=2, ensure_ascii=False)
 
         return {"status": "success", "message": f"Processed {len(all_combined_results)} images across {len(roll_groups)} rolls"}
 
