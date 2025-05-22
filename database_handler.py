@@ -225,12 +225,12 @@ class DatabaseHandler:
                         image_title, image_in_cm, image_path, image_class_id, confidence,
                         box_coord, best_box_coord, is_sticker_model, is_sticker_manual,
                         is_barcode_manual, barcode_manual, barcode_model, meters,
-                        roll_header_id, col_1,is_piece_completed,col_2,col_3
+                        roll_header_id, col_1,is_piece_completed,col_2,col_3,is_fastqr
                     ) VALUES (
                         %s, %s, %s, %s, %s,
                         %s, %s, %s, %s,
                         %s, %s, %s, %s,
-                        %s, %s, %s, %s, %s
+                        %s, %s, %s, %s, %s, %s
                     )
                 """
                 values = []
@@ -261,7 +261,8 @@ class DatabaseHandler:
                         r.get("plain_text"),
                         r.get("is_piece_completed", 0),
                         low_confidence_json,
-                        r.get("condition_col")
+                        r.get("condition_col"),
+                        r.get("is_fastqr", 0)
                         # r.get("is_barcode_model")
                     ))
                 self.cursor.executemany(sql, values)

@@ -73,7 +73,7 @@ class Model:
         self.model3=None
         self.model1_path = "Models/SeamMiniV1.pkl"
         self.model2_path = "Models/SeamV1.pkl"
-        self.model3_path="Models/Seamvit.pkl"
+        self.model3_path="Models/seamv1.1.pkl"
         self.device=None
 
     def load_models(self):
@@ -349,7 +349,7 @@ def get_barcode_from_object(obj):
 
             if matches and isinstance(matches, list) and len(matches) > 0 and "match" in matches[0]:
                 # Check if score is at least 0.9
-                if "score" in matches[0] and matches[0]["score"] >= 0.9:
+                if "score" in matches[0] and matches[0]["score"] >= 0.7:
                     barcode_from_json = matches[0]["match"]
                 else:
                     # Score is less than 0.9 - use original barcode from OCR
@@ -535,6 +535,7 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
                 latest_box_coord        = None
                 latest_best_box_coord   = None
                 barcode_manual= ""
+                is_fastqr=0
                 latest_is_barcode_model = 0 #1 if barcode model is detected, 0 otherwise
                 latest_is_barcode_manual= 0 #1 if barcode is detected manually like if the prevous was empty
                 latest_is_sticker_model = 0#1 if sticker model is detected, 0 otherwise
@@ -558,6 +559,7 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
                 fast_qr=(qr.get("fast_qr")      or "").strip()
                 low_confidence_matches = ""
                 if fast_qr:
+                    is_fastqr=1
                     barcode_from_json = fast_qr
                 else:
                     # Fallback to similarity_test -> matches[0] -> match
@@ -566,7 +568,7 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
 
                     if matches and isinstance(matches, list) and len(matches) > 0 and "match" in matches[0]:
                         # Check if score is at least 0.9
-                        if "score" in matches[0] and matches[0]["score"] >= 0.9:
+                        if "score" in matches[0] and matches[0]["score"] >= 0.7:
                             barcode_from_json = matches[0]["match"]
                             
                             print(f"High confidence match ({matches[0].get('score', 0)}) - using barcode from similarity test")
@@ -603,12 +605,33 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
                             print('Barcode: ',latest_barcode)
                             condition_col="At if prev_res.iloc[0].get(barcode_model) == latest_barcode"
                         else:
-                            latest_barcode=prev_res.iloc[0].get("barcode_model")
-                            # latest_is_barcode_model = 0
-                            latest_is_barcode_manual=1
-                            latest_is_sticker_model=1
-                            latest_is_piece_completed=1
-                            barcode_manual=latest_barcode
+                            # latest_barcode=prev_res.iloc[0].get("barcode_model")
+                            prev_is_fastqr=prev_res.iloc[0].get("is_fastqr")
+                            if prev_is_fastqr==1 and is_fastqr==0:
+                                barcode_manual=prev_res.iloc[0].get("barcode_model")
+                                latest_barcode=prev_res.iloc[0].get("barcode_model")
+                                latest_is_barcode_manual=1
+                                latest_is_sticker_model=1
+                                latest_is_piece_completed=1
+                                
+
+                            elif is_fastqr==1 and prev_is_fastqr==0:
+                                is_update_prev_result = True
+                                index = prev_res.index[0]  # first row
+                                prev_res.at[index, 'barcode_manual'] = latest_barcode
+                                prev_res.at[index, 'is_sticker_model'] = 1
+                                prev_res.at[index,'is_barcode_manual']=1
+                                prev_res.at[index,'barcode_model']=''
+                                prev_res.at[index,'is_barcode_model']=0
+                                updated_prev_rows.append(prev_res.loc[index].copy())
+                                latest_is_piece_completed=1
+                            else:
+                                latest_barcode=prev_res.iloc[0].get("barcode_model")                                
+                                # latest_is_barcode_model = 0
+                                latest_is_barcode_manual=1
+                                latest_is_sticker_model=1
+                                latest_is_piece_completed=1                                
+                                                                                                                            
                             prev_df=pd.DataFrame()
                             print(f"At Else of  if prev_res.iloc[0].get(barcode_model) == latest_barcode")
                             print('Barcode: ',latest_barcode)
@@ -616,26 +639,55 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
                     elif get_barcode_position(combined_results, latest_barcode) == 2:
                         print("At elif get_barcode_position(combined_results, latest_barcode) == 2")
                         current_meter = result.get(enums.METERS_COLUMN, 0)
-                        print('Current meter:',current_meter)
-                        second_barcode_df=db.is_barcode_second(roll_id,current_meter)
-                        print('Second barcode df:',second_barcode_df)
-                        if not second_barcode_df.empty:
-                            is_update_prev_result = True
-                            index = second_barcode_df.index[0]  # first row
-                            second_barcode_df.at[index, 'barcode_manual'] = latest_barcode
-                            second_barcode_df.at[index, 'is_sticker_model'] = 1
-                            second_barcode_df.at[index,'is_barcode_manual']=1                        
-                            updated_prev_rows.append(second_barcode_df.loc[index].copy())
-                            second_barcode_df=pd.DataFrame()
-
+                        print('Current meter:', current_meter)
+                        
+                        # Get records from DB that might need updating
+                        second_barcode_df = db.is_barcode_second(roll_id, current_meter)
+                        print('Second barcode df:', second_barcode_df)
+                        
+                        # Set these flags regardless of DB state
+                        latest_is_barcode_model = 1
+                        latest_is_sticker_model = 1
                         latest_is_piece_completed=1
-                        latest_is_barcode_model=1
-                        latest_is_sticker_model=1
-                        condition_col="At elif not second_barcode_df.empty"
-
-
-                        print("At elif not second_barcode_df.empty")
-                        print('Barcode ',latest_barcode)
+                        
+                        if not second_barcode_df.empty:
+                            index = second_barcode_df.index[0]  # first row
+                            
+                            # Check if there's already a barcode present
+                            existing_barcode_manual = second_barcode_df.loc[index, 'barcode_manual']
+                            existing_barcode_model = second_barcode_df.loc[index, 'barcode_model']
+                            existing_barcode_meter=second_barcode_df.loc[index,'meters']
+                            existing_barcode = existing_barcode_manual or existing_barcode_model
+                            
+                            if existing_barcode and str(existing_barcode).strip():
+                                print(f"Found existing barcode '{existing_barcode}', creating new entry for '{latest_barcode}'")
+                                
+                                # Create a new entry for insertion rather than updating
+                                new_record = {
+                                    enums.ROLL_HEADER_ID_COLUMN: roll_id,
+                                    enums.IMAGE_TITLE_COLUMN: 'dummy.jpg',
+                                    enums.IMAGE_PATH_COLUMN: 'dummy_path',
+                                    "image_in_cm": 0.0,
+                                    "image_class_id": 'normal',
+                                    "confidence": result.get("seam_data", {}).get("conf"),
+                                    "box_coord": latest_box_coord,
+                                    "best_box_coord": latest_best_box_coord,
+                                    "is_sticker_model": 1,
+                                    "is_sticker_manual": 0,
+                                    "is_barcode_manual": 1,
+                                    "is_barcode_model": 0,
+                                    "is_damage_barcode": 0,
+                                    "barcode_manual": latest_barcode,
+                                    "barcode_model": latest_barcode,
+                                    "plain_text": plain_text,
+                                    enums.METERS_COLUMN: existing_barcode_meter+0.5,
+                                    "is_piece_completed": 0,
+                                    "low_confidence_matches": low_confidence_matches,
+                                    "condition_col": "New entry for existing barcode"
+                                }
+                                
+                                # Add to records to insert
+                                records_to_insert.append(new_record)
                         
                     else:
                         latest_is_piece_completed=0
@@ -670,7 +722,8 @@ def apply_checks(combined_results, prev_df, raw_messages,roll_id):
                     enums.METERS_COLUMN:         result.get(enums.METERS_COLUMN, 0),
                     "is_piece_completed":      latest_is_piece_completed,
                     "low_confidence_matches": low_confidence_matches,
-                    "condition_col": condition_col
+                    "condition_col": condition_col,
+                    "is_fastqr": is_fastqr
                 }
                 records_to_insert.append(db_record)
                 latest_is_piece_completed=0
@@ -966,7 +1019,7 @@ def inference_images():
 
                 first_meters = meters_vals[0]
                 last_meters  = meters_vals[-1]
-                out_dir = pathlib.Path("output")
+                out_dir = pathlib.Path(f"output/{roll_id}")
                 out_dir.mkdir(exist_ok=True)
                 results_path = out_dir / f"results_{first_meters}_{last_meters}.json"
                 with open(results_path, "w", encoding="utf-8") as f:

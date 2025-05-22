@@ -9,6 +9,9 @@ Models/
 output/
 test_images/
 v1/
+qr_crops/
+stitched/
+
 app.log
 best.pt
 
